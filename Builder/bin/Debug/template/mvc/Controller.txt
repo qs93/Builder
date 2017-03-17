@@ -1,0 +1,77 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+[using]
+
+namespace [ControllerNamespace]
+{
+    public class [TableName2][ModelSuffix][ControllerSuffix] : BaseController
+    {
+        I[TableName][ModelSuffix]Service service;
+        public [TableName2][ModelSuffix][ControllerSuffix]()
+        {
+            service = [tableName][ModelSuffix]Service;
+        }
+
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public string List([TableName][ModelSuffix]List_Page query)
+        {
+            query.pageSize = pageSize;
+
+            var list = service.GetPagedList(query);
+            return JsonHelper.Success(list);
+        }
+
+        [HttpGet]
+        public ActionResult Add(int id = 0)
+        {
+            if (id > 0)
+            {
+                var model = service.GetModelThrow(id);
+                return View(model);
+            }
+            return View(new [TableName][ModelSuffix]());
+        }
+        [HttpPost]
+        public ActionResult Add([TableName][ModelSuffix] model, bool isRedirect)
+        {
+            ViewData.Model = model;
+            int id = model.Id;
+
+            model.CreateBy = model.UpdateBy = userId;
+
+            service.AddOrUpdate(model);
+            if (isRedirect)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                if (id > 0)
+                {
+                    AddAlertMsg("修改成功");
+                }
+                else
+                {
+                    AddAlertMsg("新增成功");
+                }
+            }
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public string Delete(params int[] id)
+        {
+            service.DeleteList(id);
+            return JsonHelper.Success();
+        }
+    }
+}

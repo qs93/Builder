@@ -1,0 +1,10 @@
+D:\Builder\Builder\bin\Debug\Builder.exe.config
+D:\Builder\Builder\bin\Debug\Builder.exe
+D:\Builder\Builder\bin\Debug\Builder.pdb
+D:\Builder\Builder\obj\Debug\Builder.Form1.resources
+D:\Builder\Builder\obj\Debug\Builder.Properties.Resources.resources
+D:\Builder\Builder\obj\Debug\Builder.csproj.GenerateResource.Cache
+D:\Builder\Builder\obj\Debug\Builder.exe
+D:\Builder\Builder\obj\Debug\Builder.pdb
+D:\Builder\Builder\bin\Debug\MySql.Data.dll
+D:\Builder\Builder\bin\Debug\Newtonsoft.Json.dll

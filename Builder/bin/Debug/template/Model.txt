@@ -1,0 +1,20 @@
+﻿using System;
+[using]
+
+namespace [ModelNamespace]
+{
+    /// <summary>
+    /// [表描述]
+    /// </summary>
+    [Serializable]
+    [TableName("[TableName]")]
+    [PrimaryKey("[PrimaryKeyName]"[autoIncrement])]
+	[NameInEx("[表描述]")]
+    public partial class [TableName][ModelSuffix]
+    {
+        #region Model
+        [Fields]
+        [Propertys]
+        #endregion		
+    }
+}

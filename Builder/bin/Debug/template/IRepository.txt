@@ -1,0 +1,15 @@
+﻿using System.Collections.Generic;
+[using]
+
+namespace [IRepositoryNamespace]
+{
+    public interface I[TableName][IRepositorySuffix] : IBaseRepository<[TableName][ModelSuffix]>
+    {
+		/// <summary>
+        /// 返回分页数据
+        /// </summary>
+        /// <param name="query">查询对象</param>
+        /// <returns></returns>
+        Page<[TableName][ModelSuffix]> GetPagedList([TableName][ModelSuffix]List_Page query);
+    }
+}

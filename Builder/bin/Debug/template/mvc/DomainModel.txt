@@ -1,0 +1,13 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace DomainModel
+{
+	/// <summary>
+    /// [TableName][ModelSuffix]分页查询参数对象
+    /// </summary>
+    public class [TableName][ModelSuffix]List_Page : Web_PageBase
+    {
+        public string keyword { get; set; }
+    }
+}

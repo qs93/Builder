@@ -1,0 +1,21 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+[using]
+
+namespace [DALNamespace]
+{
+	/// <summary>
+    /// [表描述] 數據訪問類
+    /// </summary>
+    public class [TableName][DALSuffix] : BaseDAL<[TableName][ModelSuffix]>,I[TableName]Repository
+    {
+		public Page<[TableName][ModelSuffix]> GetPagedList([TableName][ModelSuffix]List_Page query)
+        {
+            InitWhereQuery();
+
+            return GetPagedList(query.page, query.pageSize, "[tableName]", "*", sbSql.ToString(), objList.ToArray());
+        }
+    }
+}

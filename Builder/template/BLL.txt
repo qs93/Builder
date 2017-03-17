@@ -1,0 +1,43 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+[using]
+
+namespace [BLLNamespace]
+{
+	/// <summary>
+    /// [表描述] 業務類
+    /// </summary>
+    public class [TableName][BLLSuffix] : BaseBLL<[TableName][ModelSuffix]>, I[TableName]Service
+    {
+		I[TableName]Repository repo;
+        public [TableName]BLL(I[TableName]Repository repo) : base(repo)
+        {
+            this.repo = repo;
+        }
+
+		public Page<[TableName][ModelSuffix]> GetPagedList([TableName][ModelSuffix]List_Page query)
+        {
+            return repo.GetPagedList(query);
+        }
+
+		public void AddOrUpdate([TableName][ModelSuffix] model)
+        {
+            if (model.Id > 0)
+            {
+                var row = Update(new
+                {
+                    model.Id,
+                    model.UpdateBy,
+                    model.UpdateDate,
+                });
+
+            }
+            else
+            {
+                Add(model);
+            }
+        }
+    }
+}
